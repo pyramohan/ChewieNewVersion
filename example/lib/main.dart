@@ -53,7 +53,7 @@ class _ChewieDemoState extends State<ChewieDemo> {
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,
       autoPlay: true,
-      looping: true,
+      looping: false,
       // Try playing around with some of these other options:
 
       // showControls: false,
@@ -84,7 +84,8 @@ class _ChewieDemoState extends State<ChewieDemo> {
         ),
         body: Column(
           children: <Widget>[
-            Expanded(
+            Container(
+              height: 250,
               child: Center(
                 child: _chewieController != null &&
                         _chewieController!
