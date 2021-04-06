@@ -74,13 +74,13 @@ class _MaterialControlsState extends State<MaterialControls>
                 _buildHitArea(),
               Positioned(
                 top: 30,
-                left: 20,
+                left: 30,
                 child: GestureDetector(
                   onTap: _onExpandCollapse,
                   child: Visibility(
                     visible: chewieController.isFullScreen,
                     child: Icon(
-                      Icons.chevron_left,
+                      Icons.arrow_back,
                       color: Colors.white,
                       size: 50,
                     ),
@@ -130,7 +130,7 @@ class _MaterialControlsState extends State<MaterialControls>
     final iconColor = Theme.of(context).textTheme.button!.color;
 
     return Container(
-      height: _hideStuff ? 10 : 40,
+      height: _hideStuff ? 10 : 60,
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Column(
@@ -143,7 +143,7 @@ class _MaterialControlsState extends State<MaterialControls>
               child: Visibility(
                 visible: !_hideStuff,
                 child: Container(
-                  height: 30,
+                  height: 50,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -191,8 +191,7 @@ class _MaterialControlsState extends State<MaterialControls>
     return Container(
       child: GestureDetector(
         onTap: () {
-          if (_latestValue.isPlaying)
-          {
+          if (_latestValue.isPlaying) {
             if (_displayTapped) {
               setState(() {
                 _hideStuff = true;
@@ -371,13 +370,12 @@ class _MaterialControlsState extends State<MaterialControls>
     final duration = _latestValue.duration;
 
     return Container(
-      height: 20,
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
       child: Text(
         '${formatDuration(position)} / ${formatDuration(duration)}',
         style: TextStyle(
-          fontSize: 16.0,
+          fontSize: 20.0,
           color: iconColor,
         ),
       ),
@@ -482,11 +480,12 @@ class _MaterialControlsState extends State<MaterialControls>
 
         _startHideTimer();
       },
+      barHeight: _hideStuff ? 11 : 7,
       colors: chewieController.materialProgressColors ??
           ChewieProgressColors(
-              playedColor: Colors.red,
+              playedColor: Color(0xFFBB141A),
               handleColor: Theme.of(context).accentColor,
-              bufferedColor: Colors.grey,
+              bufferedColor: Color(0xFFA4A4A4),
               backgroundColor: Theme.of(context).disabledColor),
     );
   }
