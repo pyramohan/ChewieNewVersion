@@ -63,10 +63,8 @@ class _MaterialControlsState extends State<MaterialControls>
         child: Stack(
           children: <Widget>[
             if (_latestValue.isBuffering)
-              const Expanded(
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
+              Center(
+                child: CircularProgressIndicator(),
               )
             else
               _buildHitArea(),
