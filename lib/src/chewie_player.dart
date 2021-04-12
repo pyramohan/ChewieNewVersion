@@ -360,9 +360,13 @@ class ChewieController extends ChangeNotifier {
 
   Future<void> _fullScreenListener() async
   {
-    if (videoPlayerController.value.position == Duration(seconds: 0, minutes: 0, hours: 0))
+    if (videoPlayerController.value.position > Duration(seconds: 0, minutes: 0, hours: 0))
     {
-      enterFullScreen();
+      if(videoPlayerController.value.isInitialized)
+      {
+        enterFullScreen();
+        videoPlayerController.removeListener(_fullScreenListener);
+      }
     }
   }
 
