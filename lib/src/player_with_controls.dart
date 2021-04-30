@@ -41,12 +41,7 @@ class PlayerWithControls extends StatelessWidget {
             child: VideoPlayer(chewieController.videoPlayerController),
           ),
           chewieController.overlay ?? Container(),
-          if (!chewieController.isFullScreen)
             _buildControls(context, chewieController)
-          else
-            SafeArea(
-              child: _buildControls(context, chewieController),
-            ),
         ],
       );
     }
